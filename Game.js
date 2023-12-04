@@ -18,6 +18,7 @@ class Game {
         this.xDown = null; //  Posición en la que el usuario ha tocado la pantalla
         this.paused = false; // Indica si el juego está pausado
         this.score = 0; // Puntuación del jugador
+        this.lives = 3; // Vidas del jugador
     }
 
     /**
