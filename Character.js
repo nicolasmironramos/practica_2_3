@@ -21,11 +21,18 @@ class Character extends Entity {
     }
 
     /**
-     * Mata a un personaje
+     * Si al jugador le quedan vidas, debe morirse durante dos segundos (llamando al método collide de su superclase Character) y renacer al cabo de ese tiempo.
      */
     collide() {
-        this.image.src = this.myImageDead;
-        this.dead = true;
+        if (this.game.lives > 0) {
+            this.image.src = this.myImageDead;
+            this.dead = true;
+
+            setTimeout(() => {
+                this.image.src = this.myImage;
+                this.dead = false;
+            }, 2000);
+        }
     }
 }
 
