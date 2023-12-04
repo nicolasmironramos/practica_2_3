@@ -44,14 +44,18 @@ class Player extends Character {
     }
 
     /**
-     * Mata al jugador
+     * Modificar el código del método collide de la clase Player para que reste una vida cada vez que al jugador le alcance un disparo mientras esté vivo.
      */
     collide() {
         if (!this.dead) {
-            setTimeout(() => {
-                this.game.endGame();
-            }, 2000);
-            super.collide();
+            this.lives--; // Restar una vida al jugador
+            if (this.lives <= 0) {
+                setTimeout(() => {
+                    this.game.endGame();
+                }, 2000);
+                this.dead = true;
+            }
         }
+        super.collide();
     }
 }
