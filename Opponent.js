@@ -1,4 +1,5 @@
 /**
+/**
  * Monstruo al que tenemos que destruir
  */
 class Opponent extends Character {
@@ -60,16 +61,17 @@ class Opponent extends Character {
     }
 
     /**
-     * Mata al oponente
+     * Modificar el código del método collide de la clase Opponent para que sume un punto a score cada vez que se alcanza con un disparo a un triángulo.
      */
     collide() {
-        
         if (!this.dead) {
             setTimeout(() => {
                 this.game.removeOpponent();
             }, 2000);
             super.collide();
+            if (this.game.currentOpponent instanceof Triangle) {
+                this.game.score += 1;
+            }
         }
-
     }
 }
