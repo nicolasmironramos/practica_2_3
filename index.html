@@ -17,6 +17,22 @@
 <body>
   <button id="pause" class="gamebutton" onclick="this.blur();">Pausa</button>
   <button id="reset" class="gamebutton" onclick="this.blur();">NUEVA PARTIDA</button>
+  <ul>
+    <li id="scoreli">Score: </li>
+    <li id="livesli">Lives: </li>
+  </ul>
+  <script>
+    const scoreElement = document.getElementById("scoreli");
+    const livesElement = document.getElementById("livesli");
+
+    function updateScoreAndLives() {
+      scoreElement.innerHTML = "Score: " + game.score;
+      livesElement.innerHTML = "Lives: " + player.lives;
+    }
+
+    // Call the updateScoreAndLives function whenever the score or lives change
+    // For example, inside the game loop or event handlers
+  </script>
 </body>
 
 </html>
