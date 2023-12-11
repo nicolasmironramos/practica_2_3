@@ -91,7 +91,12 @@ class Game {
         if (this.opponent) {
             document.body.removeChild(this.opponent.image);
         }
-        this.opponent = new Opponent(this);
+        
+        if (this.opponent instanceof Triangle) {
+            this.opponent = new Boss(this);
+        } else {
+            this.opponent = new Opponent(this);
+        }
     }
 
     /**
@@ -209,7 +214,12 @@ class Game {
      */
     endGame () {
         this.ended = true;
-        let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE)
+        let gameOver;
+        if (this.player.lives > 0) {
+            gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, YOU_WIN_PICTURE);
+        } else {
+            gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE);
+        }
         gameOver.render();
     }
 
