@@ -1,5 +1,4 @@
 /**
-/**
  * Monstruo al que tenemos que destruir
  */
 class Opponent extends Character {
