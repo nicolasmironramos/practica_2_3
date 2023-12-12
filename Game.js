@@ -153,7 +153,7 @@ class Game {
             return;
         }
         const xUp = evt.touches[0].clientX,
-            xDiff = this.xDown - xUp;
+         xDiff = this.xDown - xUp;
 
         if (xDiff > MIN_TOUCHMOVE) { /* Left swipe */
             this.keyPressed = KEY_LEFT;
@@ -198,9 +198,9 @@ class Game {
             return false; // When opponent is undefined, there is no collision
         }
         const b1 = item1.y + item1.height,
-            r1 = item1.x + item1.width,
-            b2 = item2.y + item2.height,
-            r2 = item2.x + item2.width;
+         r1 = item1.x + item1.width,
+         b2 = item2.y + item2.height,
+         r2 = item2.x + item2.width;
 
         if (b1 < item2.y || item1.y > b2 || r1 < item2.x || item1.x > r2) {
             return false;

@@ -59,7 +59,6 @@ class Opponent extends Character {
         }
     }
 
-
     /**
      * Modificar el código del método collide de la clase Opponent para que sume un punto a score cada vez que se alcanza con un disparo a un triángulo.
      */

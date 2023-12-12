@@ -11,15 +11,15 @@
   <script src="Opponent.js" type="text/javascript"></script>
   <script src="Shot.js" type="text/javascript"></script>
   <script src="main.js" type="text/javascript"></script>
-  <script src="boss.js" type="text/javascript"></script>
+  <script src="Boss.js" type="text/javascript"></script>
 </head>
 
 <body>
   <button id="pause" class="gamebutton" onclick="this.blur();">Pausa</button>
   <button id="reset" class="gamebutton" onclick="this.blur();">NUEVA PARTIDA</button>
   <ul>
-    <li id="scoreli">Score: </li>
-    <li id="livesli">Lives: </li>
+    <li id="scoreli" style="font-family: sans-serif"></li>
+    <li id="livesli" style="font-family: sans-serif"></li>
   </ul>
   <script>
     const scoreElement = document.getElementById("scoreli");
@@ -33,6 +33,10 @@
     // Call the updateScoreAndLives function whenever the score or lives change
     // For example, inside the game loop or event handlers
   </script>
+  
+  <audio autoplay loop autostart id="Audio">
+    <source src="assets/soundtrackCR.mp3" type="audio/mp3">
+  </audio>
 </body>
 
 </html>

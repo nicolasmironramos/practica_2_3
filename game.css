@@ -1,10 +1,17 @@
 html {
-  overflow: hidden;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-image: url("assets/background.jpg");
+	background-position: center;
+	background-size: cover;
+	color: white;
 }
 
 .Opponent {
-	animation: rotation 3s infinite linear;
-	-webkit-animation: rotation 3s infinite linear;
+	/* animation: rotation 3s infinite linear;
+	-webkit-animation: rotation 3s infinite linear; */
 }
 
 .paused .Opponent {
@@ -25,10 +32,14 @@ html {
 
 .gamebutton {
 	border: none;
-	background: #ddd;
-	color: #333;
+	background: #FF5733;
+	color: #C70039;
 	padding: 10px 20px;
 	outline: none;
-	font-family: monospace;
+	font-family: Arial, sans-serif;
 	cursor: pointer;
 }
+
+/* body {
+	background-color: #2E4053;
+} */

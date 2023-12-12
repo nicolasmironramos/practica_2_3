@@ -1,3 +1,4 @@
+
 /**
  * Personaje principal del juego. Hereda de la clase Character.
  * @extends Character
@@ -14,11 +15,11 @@ class Player extends Character {
             y = game.height - height,
             speed = PLAYER_SPEED,
             myImage = PLAYER_PICTURE,
-            myImageDead = PLAYER_PICTURE_DEAD,
-            mylives = NUMBER_OF_LIVES;
+            myImageDead = PLAYER_PICTURE_DEAD;
 
         super(game, width, height, x, y, speed, myImage, myImageDead);
-        this.lives = mylives; // Nuevo atributo lives con valor inicial de NUMBER_OF_LIVES
+        // Vidas del jugador 
+        this.lives = LIVES;
     }
 
     /**
@@ -44,22 +45,28 @@ class Player extends Character {
         }
     }
 
+    /**
+     * Mata al jugador
+     */
+
     collide() {
         if (!this.dead) {
-            this.lives--; // Restar una vida al jugador
-            if (this.lives > 0) {
-                this.dead = true;
-                setTimeout(() => {
-                    this.dead = false;
-                    this.image.src = this.myImage;
-                }, 2000);
-            } else {
-                setTimeout(() => {
-                    this.game.endGame();
-                }, 2000);
-                this.dead = true;
-                super.collide(); // Call the collide method of the superclass
-            }
+            this.lives--;
+          //Restamos una vida al jugador en caso de haber sido alcanzado por un disparo. Pero sigue vivo.
+          if (this.lives > 0) {
+            //Si al jugador le quedan vidas
+            super.collide();
+            // El jugador muere durante dos segundos y renace con una vida menos.
+            setTimeout(() => {
+              this.image.src = this.myImage;
+              this.dead = false;
+            }, 2000);
+          } else {
+            // Si al jugador no le quedan vidas, muere definitivamente y se acaba el juego.
+            super.collide();
+            this.game.endGame();
+          }
         }
+      }
     }
-}
+
