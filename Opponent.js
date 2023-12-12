@@ -68,7 +68,7 @@ class Opponent extends Character {
                 this.game.removeOpponent();
             }, 2000);
             super.collide();
-            if (this.game.currentOpponent instanceof Triangle) {
+            if (this.game.currentOpponent instanceof Opponent) {
                 this.game.score += 1;
             }
         }
