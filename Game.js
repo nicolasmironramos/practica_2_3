@@ -267,3 +267,12 @@ class Game {
         });
     }
 }
+function updateScoreAndLives() {
+    // Update the score and lives display
+    document.getElementById("score").innerText = game.score;
+    document.getElementById("lives").innerText = game.lives;
+}
+
+// Call the updateScoreAndLives function whenever the score or lives change
+// For example, inside the game loop or event handlers
+game.updateScoreAndLives();
